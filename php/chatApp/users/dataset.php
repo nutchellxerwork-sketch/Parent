@@ -1,23 +1,23 @@
 <?php
-// SERVER LOGIC (index.php)
-$log = "chat_data.txt";
+// Handshake Security: FranceS123
+$secret = "RnJhbmNlUzEyMw==";
 
-// 1. SAVE MESSAGE (POST)
-if (isset($_POST['u']) && isset($_POST['m'])) {
-    $u = htmlspecialchars($_POST['u']);
-    $m = htmlspecialchars($_POST['m']);
-    $t = date("H:i");
-    $line = "<div class='msg'>[$t] <b>$u</b>: $m</div>\n";
-    file_put_contents($log, $line, FILE_APPEND);
-    echo "OK";
-    exit;
+if (!defined('APP_KEY') || APP_KEY !== $secret) {
+    header('HTTP/1.0 403 Forbidden');
+    die("Hi! Access Denied. Handshake failed.");
 }
 
-// 2. LOAD MESSAGES (GET)
-if (file_exists($log)) {
-    echo file_get_contents($log);
-} else {
-    echo "<i>No messages yet...</i>";
-}
+// User Database
+$all_users = [
+    "admin" => ["password" => "admin123", "name" => "System Admin"],
+    "user1" => ["password" => "pass123", "name" => "John Doe"]
+];
+
+// Chat Database
+// Structured by [sender, receiver, message, timestamp]
+$all_chats = [
+    ["from" => "admin", "to" => "user1", "msg" => "Hi! Welcome to the AI chat.", "time" => "12:00"],
+    ["from" => "user1", "to" => "admin", "msg" => "Thanks! Is this secure?", "time" => "12:01"],
+    ["from" => "guest", "to" => "admin", "msg" => "I shouldn't see this.", "time" => "12:05"]
+];
 ?>
-
