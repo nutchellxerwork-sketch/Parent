@@ -1,5 +1,5 @@
 <?php
-if(!defined('APP_KEY') || APP_KEY !== 'RnJhbmNlUzEyMw==') die('Handshake failed');
+if(!defined('APP_KEY') || APP_KEY !== 'RnJhbmNlUzEyMw==') die('Denied');
 $all_users = array (
   'admin' => 
   array (
@@ -38,6 +38,13 @@ $all_chats = array (
     'to' => 'admin',
     'msg' => 'I shouldn\'t see this.',
     'time' => '12:05',
+  ),
+  3 => 
+  array (
+    'from' => 'JnDoe',
+    'to' => 'Global',
+    'msg' => 'Hi',
+    'time' => '04:21',
   ),
 );
 ?>
