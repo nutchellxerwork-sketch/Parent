@@ -46,5 +46,12 @@ $all_chats = array (
     'msg' => 'Hi',
     'time' => '04:21',
   ),
+  4 => 
+  array (
+    'from' => 'JnDoe',
+    'to' => 'Global',
+    'msg' => 'Hi',
+    'time' => '04:21',
+  ),
 );
 ?>
